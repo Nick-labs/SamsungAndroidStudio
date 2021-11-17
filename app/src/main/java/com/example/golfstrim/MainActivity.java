@@ -4,22 +4,21 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
+    private TextView hitv;
+    private EditText editText1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Button button = this.findViewById(R.id.button2);
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-        Toast.makeText(this, "Created", Toast.LENGTH_SHORT).show();
+        System.out.println(getResources().getString(R.string.app_name));
+        System.out.println("XMLGROUP1");
+        hitv = this.findViewById(R.id.hitv);
+        hitv.setBackgroundColor(getResources().getColor(R.color.yandexcolor));
     }
 
     @Override
@@ -52,5 +51,4 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "Ну так пусть сбудутся все его мечты",
                 Toast.LENGTH_SHORT).show();
     }
-
 }
