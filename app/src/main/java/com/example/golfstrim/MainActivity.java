@@ -9,16 +9,20 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView hitv;
-//    private EditText editText1;
+    private TextView textView;
+    private TextView textViewRes;
+    private EditText editText;
+    private EditText editText2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        System.out.println(getResources().getString(R.string.app_name));
-        System.out.println("XMLGROUP1");
-        hitv = this.findViewById(R.id.hitv);
-        hitv.setBackgroundColor(getResources().getColor(R.color.yandexcolor));
+
+        textView = findViewById(R.id.textView);
+        textViewRes = findViewById(R.id.textViewRes);
+        editText = findViewById(R.id.editText);
+        editText2 = findViewById(R.id.editText2);
     }
 
     @Override
@@ -46,9 +50,16 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(this, "destroyed", Toast.LENGTH_SHORT).show();
     }
 
-    public void click1(View view) {
-        System.out.println("click1");
-        Toast.makeText(this, "Ну так пусть сбудутся все его мечты",
-                Toast.LENGTH_SHORT).show();
+    public void clickButton(View view) {
+        double a, b, res;
+        String s1 = editText.getText().toString();
+        String s2 = editText2.getText().toString();
+
+        a = Double.parseDouble(s1);
+        b = Double.parseDouble(s2);
+
+        res = a + b;
+
+        textViewRes.setText(Double.toString(res));
     }
 }
