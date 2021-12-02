@@ -10,6 +10,15 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Golfstrim">
         <activity
+            android:name=".ComebackActivity"
+            android:exported="true" />
+        <activity
+            android:name=".TakeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".GoActivity"
+            android:exported="true" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
