@@ -5,17 +5,17 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
-    private Button go, take, comeback;
-    private EditText textToSend;
-    private TextView tv;
+    private EditText editSurname, editName, editPatron, editGrade, editLetter;
+    private Button buttonBegin;
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,44 +23,36 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         initFields();
 
-        go.setOnClickListener(new View.OnClickListener() {
+        buttonBegin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, GoActivity.class);
-                startActivity(i);
-            }
-        });
-
-        take.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent meshok = new Intent(MainActivity.this, TakeActivity.class);
-                meshok.putExtra("txt", textToSend.getText().toString());
+                Intent meshok = new Intent(MainActivity.this, TestActivity.class);
+                Student student = new Student(
+                        editSurname.getText().toString(),
+                        editName.getText().toString(),
+                        editPatron.getText().toString(),
+                        editGrade.getText().toString(),
+                        editLetter.getText().toString());
+                meshok.putExtra("student", (Parcelable) student);
                 startActivity(meshok);
             }
         });
-
-        comeback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(MainActivity.this, ComebackActivity.class);
-                startActivityForResult(i, 1);
-            }
-        });
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        System.out.println(requestCode + " - " + resultCode);
-        tv.setText(data.getStringExtra("cbTxt"));
-    }
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+//        System.out.println(requestCode + " - " + resultCode);
+//        textView.setText(data.getStringExtra("cbTxt"));
+//    }
 
     private void initFields() {
-        go = findViewById(R.id.go);
-        take = findViewById(R.id.take);
-        comeback = findViewById(R.id.comeback);
-        textToSend = findViewById(R.id.textToSend);
-        tv = findViewById(R.id.tv);
+        textView = findViewById(R.id.textView);
+        editSurname = findViewById(R.id.editSurname);
+        editName = findViewById(R.id.editName);
+        editPatron = findViewById(R.id.editPatron);
+        editGrade = findViewById(R.id.editGrade);
+        editLetter = findViewById(R.id.editLetter);
+        buttonBegin = findViewById(R.id.buttonBegin);
     }
 }

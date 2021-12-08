@@ -17,39 +17,54 @@
             android:id="@+id/textView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
-
-        <Button
-            android:id="@+id/go"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="go" />
-
-        <Button
-            android:id="@+id/take"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="take" />
-
-        <Button
-            android:id="@+id/comeback"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="comeback" />
+            android:text="Экзамен"
+            android:textSize="34sp" />
 
         <EditText
-            android:id="@+id/textToSend"
+            android:id="@+id/editSurname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Surname" />
+
+        <EditText
+            android:id="@+id/editName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:inputType="textPersonName"
             android:text="Name" />
 
-        <TextView
-            android:id="@+id/tv"
+        <EditText
+            android:id="@+id/editPatron"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TextView" />
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Patron..." />
+
+        <EditText
+            android:id="@+id/editGrade"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Grade" />
+
+        <EditText
+            android:id="@+id/editLetter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="Letter" />
+
+        <Button
+            android:id="@+id/buttonBegin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Начать" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
